@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./base/Card";
+import { Card, CardContent, CardTitle } from "./base/Card";
 import Image from "next/image";
 import { FaCalendarAlt } from "react-icons/fa";
 interface Company {
