@@ -35,7 +35,7 @@ export default function Experience() {
       <CardTitle className="text-foreground">Experience</CardTitle>
 
       <Card className="relative">
-        <div className="absolute -top-1 -right-[50px] rotate-[18deg] bg-violet-500 text-violet-50 text-xs px-2 py-1 rounded-full">
+        <div className="absolute -top-2 -right-[10px] rotate-[4deg] lg:-top-1 lg:-right-[50px] lg:rotate-[18deg] bg-violet-500 text-violet-50 text-xs px-2 py-1 rounded-full">
           YOUR COMPANY HERE
         </div>
         <CardContent className="pt-6">

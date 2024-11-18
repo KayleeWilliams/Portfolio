@@ -13,7 +13,9 @@ export default function Home() {
           {/* Sidebar Section */}
           <div className="md:col-span-1 space-y-6">
             <Profile />
-            <Skills />
+            <div className="hidden md:block">
+              <Skills />
+            </div>
           </div>
 
           {/* Main Section */}
@@ -22,6 +24,9 @@ export default function Home() {
             <About />
             <Experience />
             <Projects />
+            <div className="block md:hidden">
+              <Skills />
+            </div>
           </main>
         </div>
       </div>

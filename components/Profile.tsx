@@ -24,7 +24,7 @@ export const Profile = () => {
       <CardContent className="pt-6">
         <div className="flex flex-col items-start gap-2 ">
           <div className="flex flex-row md:flex-col items-center md:items-start w-full gap-4">
-            <div className="relative rounded-full mx-auto">
+            <div className="relative rounded-full md:mx-auto">
               <Image
                 width={150}
                 height={150}
@@ -34,7 +34,7 @@ export const Profile = () => {
                 className="rounded-full size-12 md:size-60 object-cover object-top border-2 border-gray-200 hover:border-violet-500 transition-colors duration-200 shadow-md"
                 priority
               />
-              <div className="absolute top-5 left-[3.5px] -rotate-[40deg] font-medium bg-violet-500 text-white text-xs px-2.5 py-1 rounded-full z-20 shadow-sm tracking-wide">
+              <div className="hidden md:block absolute top-5 left-[3.5px] -rotate-[40deg] font-medium bg-violet-500 text-white text-xs px-2.5 py-1 rounded-full z-20 shadow-sm tracking-wide">
                 MY CAT
               </div>
             </div>
