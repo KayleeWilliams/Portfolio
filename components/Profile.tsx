@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import { Card, CardContent } from "@/components/base/Card";
+import Pill from "@/components/base/Pill";
 
 const socials = [
   {
@@ -34,9 +35,9 @@ export const Profile = () => {
                 className="rounded-full size-12 md:size-60 object-cover object-top border-2 border-gray-200 hover:border-violet-500 transition-colors duration-200 shadow-md"
                 priority
               />
-              <div className="hidden md:block absolute top-5 left-[3.5px] -rotate-[40deg] font-medium bg-violet-500 text-white text-xs px-2.5 py-1 rounded-full z-20 shadow-sm tracking-wide">
-                MY CAT
-              </div>
+              <Pill className="hidden md:block top-5 left-[3.5px] -rotate-[40deg]">
+                MY CAT 🐱
+              </Pill>
             </div>
             <div className="flex flex-col items-start justify-center">
               <h1 className="font-bold md:mt-4 text-xl md:text-2xl">

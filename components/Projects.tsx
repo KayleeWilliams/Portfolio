@@ -52,7 +52,7 @@ function ProjectCard({ project }: { project: Project }) {
                   href={project.github}
                   className="flex items-center gap-2 text-sm text-primary hover:underline"
                 >
-                  View Project
+                  Github
                 </Link>
                 <FaExternalLinkAlt className="size-3" />
               </div>

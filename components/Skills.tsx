@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./base/Card";
+import Pill from "./base/Pill";
 
 interface SkillCategory {
   name: string;
@@ -30,9 +31,7 @@ export default function Skills() {
           </div>
         ))}
       </CardContent>
-      <div className="absolute -bottom-1 -right-4  -rotate-[15deg] bg-violet-500 text-violet-50 text-xs px-2 py-1 rounded-full">
-        I ❤️ Learning
-      </div>
+      <Pill className="bottom-1 -right-4  -rotate-[15deg]">I ❤️ Learning</Pill>
     </Card>
   );
 }
