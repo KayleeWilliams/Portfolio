@@ -9,7 +9,8 @@ export default async function ExperiencePage({
 }: {
   params: { slug: string };
 }) {
-  const experience = await getExperience(params.slug);
+  const { slug } = await params;
+  const experience = await getExperience(slug);
 
   if (!experience) {
     notFound();
