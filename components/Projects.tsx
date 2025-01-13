@@ -3,6 +3,7 @@ import { Project } from "@/types/project";
 import { Card, CardContent, CardTitle } from "./base/Card";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
+
 export default function Projects() {
   return (
     <div>

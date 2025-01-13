@@ -1,4 +1,3 @@
-import { Profile } from "@/components/Profile";
 import ScrollingBanner from "@/components/Banner";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
@@ -7,29 +6,14 @@ import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <div className="container max-w-screen-lg mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Sidebar Section */}
-          <div className="md:col-span-1 space-y-6">
-            <Profile />
-            <div className="hidden md:block">
-              <Skills />
-            </div>
-          </div>
-
-          {/* Main Section */}
-          <main className="md:col-span-2 space-y-6">
-            <ScrollingBanner />
-            <About />
-            <Experience />
-            <Projects />
-            <div className="block md:hidden">
-              <Skills />
-            </div>
-          </main>
-        </div>
+    <>
+      <ScrollingBanner />
+      <About />
+      <Experience />
+      <Projects />
+      <div className="block md:hidden">
+        <Skills />
       </div>
-    </div>
+    </>
   );
 }

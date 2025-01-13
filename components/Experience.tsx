@@ -1,35 +1,12 @@
 import { Card, CardContent, CardTitle } from "./base/Card";
 import Image from "next/image";
-import { FaCalendarAlt } from "react-icons/fa";
-interface Company {
-  name: string;
-  image: string;
-  link?: string;
-}
+import { FaCalendarAlt, FaExternalLinkAlt } from "react-icons/fa";
+import { getAllExperience } from "@/lib/getAllExperience";
+import { formatDate } from "@/lib/utils/formatDate";
+import Link from "next/link";
 
-interface Experience {
-  company: Company;
-  jobTitle: string;
-  startDate: string;
-  endDate: string;
-  description: string;
-}
-
-const experience: Experience[] = [
-  {
-    company: {
-      name: "Everfund",
-      image: "/everfund.webp",
-    },
-    jobTitle: "Full Stack Software Engineer",
-    startDate: "Jun 2023",
-    endDate: "Nov 2024",
-    description:
-      "Everfund is a fundraising platform that simplifies the process for nonprofits to raise money through multi-channel campaigns. It supports organizations of all sizes, including large nonprofits with smaller branches and chapters.",
-  },
-];
-
-export default function Experience() {
+export default async function Experience() {
+  const experience = await getAllExperience();
   return (
     <div className="space-y-4">
       <CardTitle className="text-foreground">Experience</CardTitle>
@@ -45,22 +22,33 @@ export default function Experience() {
                 <Image
                   width={30}
                   height={30}
-                  src={e.company.image}
-                  alt={e.company.name}
+                  src={e.logo}
+                  alt={e.company}
                   className="rounded"
                 />
                 <div>
-                  <p className="font-bold">{e.jobTitle}</p>
-                  <p>{e.company.name}</p>
+                  <p className="font-bold">{e.role}</p>
+                  <p>{e.company}</p>
                 </div>
               </div>
               <div className="flex flex-row items-center gap-2 text-gray-600 mb-2 mt-1">
                 <FaCalendarAlt className="size-3 text-gray-600" />
                 <p className="text-sm">
-                  {e.startDate} - {e.endDate}
+                  {formatDate(e.startDate)} -{" "}
+                  {e.endDate ? formatDate(e.endDate) : "Present"}
                 </p>
               </div>
               <p>{e.description}</p>
+
+              <div className="flex items-center gap-2 justify-self-end">
+                <Link
+                  href={`/experience/${e.slug}`}
+                  className="flex items-center gap-2 text-sm text-primary hover:underline"
+                >
+                  Learn More
+                </Link>
+                <FaExternalLinkAlt className="size-3" />
+              </div>
             </div>
           ))}
         </CardContent>
