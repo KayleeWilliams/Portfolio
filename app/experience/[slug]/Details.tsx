@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/base/Card";
-import * as runtime from "react/jsx-runtime";
 import { Experience } from "@/types/experience";
 import { compileMDX } from "next-mdx-remote/rsc";
 import MarkdownComponents from "@/components/Markdown";
@@ -13,7 +12,6 @@ export default async function Details({
 
   const { content } = await compileMDX({
     source: experience.content,
-    options: { runtime },
     components: MarkdownComponents(),
   });
 

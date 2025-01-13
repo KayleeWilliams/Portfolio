@@ -7,7 +7,7 @@ import Tech from "./Tech";
 export default async function ExperiencePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const experience = await getExperience(slug);
