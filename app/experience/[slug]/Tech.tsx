@@ -26,8 +26,8 @@ export default function Tech({ experience }: { experience: Experience }) {
           <CardTitle>Technologies</CardTitle>
         </CardHeader>
         <CardContent className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 w-[100px] h-full bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="absolute right-0 top-0 w-[100px] h-full bg-gradient-to-l from-white to-transparent z-10" />
+          <div className="absolute left-0 top-0 w-[100px] h-full bg-gradient-to-r from-white to-transparent z-10 rounded-lg" />
+          <div className="absolute right-0 top-0 w-[100px] h-full bg-gradient-to-l from-white to-transparent z-10 rounded-lg " />
 
           {/* First row */}
           <div className="flex mb-4">
