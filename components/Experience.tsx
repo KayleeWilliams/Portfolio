@@ -27,7 +27,7 @@ export default async function Experience() {
                   className="rounded"
                 />
                 <div>
-                  <p className="font-bold">{e.role}</p>
+                  <p className="font-semibold">{e.role}</p>
                   <p>{e.company}</p>
                 </div>
               </div>
