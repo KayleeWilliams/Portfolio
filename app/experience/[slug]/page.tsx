@@ -3,6 +3,18 @@ import { notFound } from "next/navigation";
 import Company from "./Company";
 import Details from "./Details";
 import Tech from "./Tech";
+import { getAllExperience } from "@/lib/getAllExperience";
+
+export const revalidate = 3600;
+export const dynamicParams = false;
+export const dynamic = "force-static";
+
+export async function generateStaticParams() {
+  const experiences = await getAllExperience();
+  return experiences.map((e) => ({
+    slug: e.slug,
+  }));
+}
 
 export default async function ExperiencePage({
   params,
