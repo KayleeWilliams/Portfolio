@@ -49,8 +49,8 @@ export const Profile = () => {
             </div>
           </div>
           <p className="mt-2 text-start text-sm text-foreground">
-            Business-focused software engineer with extensive full-stack
-            development experience across modern web and mobile technologies
+            Business-focused full-stack software engineer. Currently primarily
+            working with Typescript and React.
           </p>
 
           <div className="mt-4 flex flex-col space-y-2 border-t border-border pt-4 w-full">

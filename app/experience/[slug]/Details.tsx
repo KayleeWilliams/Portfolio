@@ -17,22 +17,6 @@ export default async function Details({
 
   return (
     <>
-      {/* {sections.map(async (section, index) => {
-        const { content } = await compileMDX({
-          source: section,
-          options: { runtime },
-          components: MarkdownComponents(),
-        });
-
-        return (
-          <Card key={index}>
-            <CardContent className="prose prose-gray max-w-none py-6">
-              {content}
-            </CardContent>
-          </Card>
-        );
-      })} */}
-
       <Card>
         <CardContent className="prose prose-gray max-w-none py-6">
           {content}

@@ -7,13 +7,11 @@ export default function About() {
         <CardTitle>About Me</CardTitle>
       </CardHeader>
       <CardContent>
-        I’m a passionate software engineer who loves creating impactful web and
-        mobile applications that seamlessly blend innovative technology with
-        practical business requirements. When I’m not engrossed in coding, you
-        can find me captivated by storytelling through binge-watching shows like
-        Andor or Arcane, indulging in baking, or immersing myself in gaming. I’m
-        always on the lookout for opportunities to combine my creative side with
-        problem-solving, striving to continuously learn and expand my knowledge.
+        I’m a passionate software engineer who loves creating web and mobile
+        applications. When I’m not coding, I am usually binge-watching shows
+        like Andor or Arcane, baking, or gaming. I’m always on the lookout for
+        opportunities to combine my creative side with problem-solving, and
+        expand my knowledge.
       </CardContent>
     </Card>
   );

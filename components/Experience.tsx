@@ -40,9 +40,9 @@ export default async function Experience() {
 
       <Card className="relative">
         <div className="absolute -top-2 -right-[10px] rotate-[4deg] lg:-top-1 lg:-right-[50px] lg:rotate-[18deg] bg-violet-500 text-violet-50 text-xs px-2 py-1 rounded-full">
-          YOUR COMPANY HERE
+          YOUR COMPANY HERE?
         </div>
-        <CardContent className="pt-6">
+        <CardContent className="pt-6 space-y-3">
           {experience.map((e, i) => (
             <div key={i}>
               {e.url ? (
@@ -61,7 +61,7 @@ export default async function Experience() {
               </div>
               <p>{e.description}</p>
 
-              <div className="flex flex-row items-center gap-2 mt-2 mb-1 ">
+              <div className="flex flex-row items-center gap-2 mt-2 mb-1">
                 <div className="border-t border-border w-full" />
                 {!e.disableDetails && (
                   <div className="flex items-center gap-2 ">
