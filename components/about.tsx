@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./base/Card";
+import { Card, CardContent, CardHeader, CardTitle } from "./base/card";
 
 export default function About() {
   return (

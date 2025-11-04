@@ -1,4 +1,4 @@
-export interface ExperienceFrontmatter {
+export type ExperienceFrontmatter = {
   company: string;
   role: string;
   description: string;
@@ -9,7 +9,7 @@ export interface ExperienceFrontmatter {
   startDate: string;
   endDate?: string;
   disableDetails?: boolean;
-}
+};
 
 export interface Experience extends ExperienceFrontmatter {
   slug: string;

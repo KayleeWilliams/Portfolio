@@ -1,10 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./base/Card";
-import Pill from "./base/Pill";
+import { Card, CardContent, CardHeader, CardTitle } from "./base/card";
+import Pill from "./base/pill";
 
-interface SkillCategory {
+type SkillCategory = {
   name: string;
   skills: string[];
-}
+};
 
 const skillCategories: SkillCategory[] = [
   { name: "Languages", skills: ["TypeScript", "Python", "Swift"] },
@@ -21,17 +21,17 @@ export default function Skills() {
       <CardHeader>
         <CardTitle>Skills</CardTitle>
       </CardHeader>
-      <CardContent className=" grid grid-cols-2 gap-4 ">
-        {skillCategories.map((category, i) => (
-          <div key={i} className="flex flex-col flex-wrap">
+      <CardContent className="grid grid-cols-2 gap-4">
+        {skillCategories.map((category) => (
+          <div className="flex flex-col flex-wrap" key={category.name}>
             <p className="font-semibold">{category.name}</p>
-            {category.skills.map((skill, j) => (
-              <p key={j}>{skill}</p>
+            {category.skills.map((skill) => (
+              <p key={skill}>{skill}</p>
             ))}
           </div>
         ))}
       </CardContent>
-      <Pill className="bottom-1 -right-4  -rotate-[15deg]">I ❤️ Learning</Pill>
+      <Pill className="-right-4 -rotate-[15deg] bottom-1">I ❤️ Learning</Pill>
     </Card>
   );
 }

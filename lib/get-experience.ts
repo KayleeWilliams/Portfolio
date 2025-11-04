@@ -1,23 +1,23 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import matter from "gray-matter";
-import { Experience, ExperienceFrontmatter } from "@/types/experience";
+import type { Experience, ExperienceFrontmatter } from "@/types/experience";
 
 const experienceDirectory = path.join(process.cwd(), "content/experience");
 
-export async function getExperience(slug: string): Promise<Experience | null> {
+export function getExperience(slug: string): Promise<Experience | null> {
   const fullPath = path.join(experienceDirectory, `${slug}.mdx`);
 
   if (!fs.existsSync(fullPath)) {
-    return null;
+    return Promise.resolve(null);
   }
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  return {
+  return Promise.resolve({
     slug,
     content,
     ...(data as ExperienceFrontmatter),
-  };
+  });
 }

@@ -1,9 +1,9 @@
-import { getExperience } from "@/lib/getExperience";
 import { notFound } from "next/navigation";
-import Company from "./Company";
-import Details from "./Details";
-import Tech from "./Tech";
-import { getAllExperience } from "@/lib/getAllExperience";
+import { getAllExperience } from "@/lib/get-all-experience";
+import { getExperience } from "@/lib/get-experience";
+import Company from "./company";
+import Details from "./details";
+import Tech from "./tech";
 
 export const revalidate = 3600;
 export const dynamicParams = false;

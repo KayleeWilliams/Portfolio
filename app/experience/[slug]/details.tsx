@@ -1,7 +1,7 @@
-import { Card, CardContent } from "@/components/base/Card";
-import { Experience } from "@/types/experience";
 import { compileMDX } from "next-mdx-remote/rsc";
-import MarkdownComponents from "@/components/Markdown";
+import { Card, CardContent } from "@/components/base/card";
+import MarkdownComponents from "@/components/markdown";
+import type { Experience } from "@/types/experience";
 
 export default async function Details({
   experience,
@@ -16,12 +16,10 @@ export default async function Details({
   });
 
   return (
-    <>
-      <Card>
-        <CardContent className="prose prose-gray max-w-none py-6">
-          {content}
-        </CardContent>
-      </Card>
-    </>
+    <Card>
+      <CardContent className="prose prose-gray max-w-none py-6">
+        {content}
+      </CardContent>
+    </Card>
   );
 }

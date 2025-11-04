@@ -9,7 +9,7 @@ export default function Pill({
   return (
     <div
       className={twMerge(
-        "absolute bg-violet-500 text-violet-50 text-xs px-2 py-1 rounded-full",
+        "absolute rounded-full bg-violet-500 px-2 py-1 text-violet-50 text-xs",
         className
       )}
     >

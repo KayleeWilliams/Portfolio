@@ -1,4 +1,4 @@
-export interface ProjectFrontmatter {
+export type ProjectFrontmatter = {
   title: string;
   description: string;
   date: string;
@@ -7,9 +7,9 @@ export interface ProjectFrontmatter {
   github?: string;
   demo?: string;
   featured?: boolean;
-}
+};
 
 export interface Project extends ProjectFrontmatter {
   slug: string;
   content: string;
-} 
+}

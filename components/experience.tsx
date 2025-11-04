@@ -1,26 +1,26 @@
-import { Card, CardContent, CardTitle } from "./base/Card";
 import Image from "next/image";
-import { FaCalendarAlt, FaExternalLinkAlt } from "react-icons/fa";
-import { getAllExperience } from "@/lib/getAllExperience";
-import { formatDate } from "@/lib/utils/formatDate";
 import Link from "next/link";
+import { FaCalendarAlt, FaExternalLinkAlt } from "react-icons/fa";
+import { getAllExperience } from "@/lib/get-all-experience";
+import { formatDate } from "@/lib/utils/format-date";
 import type { Experience } from "@/types/experience";
+import { Card, CardContent, CardTitle } from "./base/card";
 
 function ExperienceHeader({ experience }: { experience: Experience }) {
   return (
-    <div className="flex flex-row items-center gap-2 group">
+    <div className="group flex flex-row items-center gap-2">
       <Image
-        src={experience.logo}
         alt={experience.company}
-        width={30}
         height={30}
+        src={experience.logo}
+        width={30}
       />
       <div>
         <p className="font-semibold">{experience.role}</p>
         <div className="flex flex-row items-center gap-2">
           <p
             className={`${
-              experience.url ? "group-hover:underline underline-offset-2" : ""
+              experience.url ? "underline-offset-2 group-hover:underline" : ""
             }`}
           >
             {experience.company}
@@ -32,19 +32,19 @@ function ExperienceHeader({ experience }: { experience: Experience }) {
   );
 }
 
-export default async function Experience() {
+export default async function ExperienceList() {
   const experience = await getAllExperience();
   return (
     <div className="space-y-4">
       <CardTitle className="text-foreground">Experience</CardTitle>
 
       <Card className="relative">
-        <div className="absolute -top-2 -right-[10px] rotate-[4deg] lg:-top-1 lg:-right-[50px] lg:rotate-[18deg] bg-violet-500 text-violet-50 text-xs px-2 py-1 rounded-full">
+        <div className="-top-2 -right-[10px] lg:-top-1 lg:-right-[50px] absolute rotate-[4deg] rounded-full bg-violet-500 px-2 py-1 text-violet-50 text-xs lg:rotate-[18deg]">
           YOUR COMPANY HERE?
         </div>
-        <CardContent className="pt-6 space-y-3">
-          {experience.map((e, i) => (
-            <div key={i}>
+        <CardContent className="space-y-3 pt-6">
+          {experience.map((e) => (
+            <div key={e.slug}>
               {e.url ? (
                 <Link href={e.url}>
                   <ExperienceHeader experience={e} />
@@ -52,7 +52,7 @@ export default async function Experience() {
               ) : (
                 <ExperienceHeader experience={e} />
               )}
-              <div className="flex flex-row items-center gap-2 text-gray-600 mb-2 mt-1">
+              <div className="mt-1 mb-2 flex flex-row items-center gap-2 text-gray-600">
                 <FaCalendarAlt className="size-3 text-gray-600" />
                 <p className="text-sm">
                   {formatDate(e.startDate)} -{" "}
@@ -61,14 +61,14 @@ export default async function Experience() {
               </div>
               <p>{e.description}</p>
 
-              <div className="flex flex-row items-center gap-2 mt-2 mb-1">
-                <div className="border-t border-border w-full" />
+              <div className="mt-2 mb-1 flex flex-row items-center gap-2">
+                <div className="w-full border-border border-t" />
                 {!e.disableDetails && (
                   <Link
+                    className="flex w-max items-center gap-2 text-nowrap text-primary text-sm underline-offset-2 hover:underline"
                     href={`/experience/${e.slug}`}
-                    target="_blank"
                     rel="noopener refereer"
-                    className="flex items-center gap-2 text-sm text-primary hover:underline w-max underline-offset-2 text-nowrap"
+                    target="_blank"
                   >
                     Learn More
                     <FaExternalLinkAlt className="size-3" />

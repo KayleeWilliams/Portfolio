@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-import { Sidebar } from "@/components/Sidebar";
+import { Sidebar } from "@/components/sidebar";
 import "./globals.css";
-import { PageTransition } from "@/components/PageTransition";
+import { PageTransition } from "@/components/page-transistion";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -26,8 +26,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${nunito.variable} grid-background antialiased`}>
         <div className="min-h-screen">
-          <div className="container max-w-screen-lg mx-auto px-4 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="container mx-auto max-w-screen-lg px-4 py-8">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               <div className="col-span-1">
                 <Sidebar />
               </div>
