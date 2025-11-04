@@ -7,11 +7,12 @@ export default function About() {
         <CardTitle>About Me</CardTitle>
       </CardHeader>
       <CardContent>
-        I’m a passionate software engineer who loves creating web and mobile
-        applications. When I’m not coding, I am usually binge-watching shows
-        like Andor or Arcane, baking, or gaming. I’m always on the lookout for
-        opportunities to combine my creative side with problem-solving, and
-        expand my knowledge.
+        I am a full-stack engineer who genuinely loves the whole process of
+        building web and mobile apps. Currently, Right now, I'm deep into
+        projects like c15t and Consent, which is a developer-first,
+        high-performance, open-source web standard for managing consent. Making
+        life easier for developers and the web experience better for everyone.
+        everyone.
       </CardContent>
     </Card>
   );

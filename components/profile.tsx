@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 import { Card, CardContent } from "@/components/base/card";
 import Pill from "@/components/base/pill";
@@ -16,6 +16,11 @@ const socials = [
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/kaylee-w",
     icon: <FaLinkedin className="size-4 text-violet-400" />,
+  },
+  {
+    name: "Twitter",
+    link: "https://x.com/kaylee_dev",
+    icon: <FaTwitter className="size-4 text-violet-400" />,
   },
 ];
 
@@ -43,14 +48,34 @@ export const Profile = () => (
               Kaylee Williams
             </h1>
             <p className="text-foreground text-sm md:text-base">
-              Software Engineer
+              Full-Stack Engineer
             </p>
           </div>
         </div>
-        <p className="mt-2 text-start text-foreground text-sm">
-          Business-focused full-stack software engineer. Currently primarily
-          working with Typescript and React.
-        </p>
+        <div className="mt-2 flex flex-col text-start text-foreground text-sm">
+          <p>
+            Founding Engineer at {""}
+            <Link
+              className="font-medium hover:underline"
+              href="https://consent.io"
+              target="_blank"
+            >
+              Consent
+            </Link>
+            .
+          </p>
+          <p>
+            Co-Author of {""}
+            <Link
+              className="font-medium hover:underline"
+              href="https://c15t.com"
+              target="_blank"
+            >
+              c15t
+            </Link>
+            .
+          </p>
+        </div>
 
         <div className="mt-4 flex w-full flex-col space-y-2 border-border border-t pt-4">
           {socials.map((s) => {

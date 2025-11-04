@@ -18,9 +18,11 @@ async function ProjectCards() {
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {projects.map((project) => (
-        <ProjectCard key={project.slug} project={project} />
-      ))}
+      {projects
+        .filter((project) => project.featured)
+        .map((project) => (
+          <ProjectCard key={project.slug} project={project} />
+        ))}
     </div>
   );
 }
