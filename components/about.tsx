@@ -12,7 +12,6 @@ export default function About() {
         projects like c15t and Consent, which is a developer-first,
         high-performance, open-source web standard for managing consent. Making
         life easier for developers and the web experience better for everyone.
-        everyone.
       </CardContent>
     </Card>
   );

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaStar } from "react-icons/fa";
 import { getAllProjects } from "@/lib/get-all-projects";
 import type { Project } from "@/types/project";
 import { Card, CardContent, CardTitle } from "./base/card";
@@ -33,10 +33,16 @@ function ProjectCard({ project }: { project: Project }) {
       <CardContent className="h-full pt-6">
         <div className="flex h-full flex-col">
           <Link
-            className="font-semibold text-primary hover:underline"
-            href={project.github || project.demo || "#"}
+            className="group flex items-center justify-between font-semibold text-primary"
+            href={project.url || project.github || project.demo || "#"}
           >
-            {project.title}
+            <span className="group-hover:underline">{project.title}</span>
+            {project.stars && (
+              <span className="flex items-center gap-1 text-muted-foreground text-sm">
+                <FaStar className="size-3" />
+                {project.stars?.toLocaleString()}
+              </span>
+            )}
           </Link>
           <p className="mt-1 mb-4 text-muted-foreground text-sm">
             {project.description}
