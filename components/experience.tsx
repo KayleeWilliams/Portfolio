@@ -67,8 +67,6 @@ export default async function ExperienceList() {
                   <Link
                     className="flex w-max items-center gap-2 text-nowrap text-primary text-sm underline-offset-2 hover:underline"
                     href={`/experience/${e.slug}`}
-                    rel="noopener refereer"
-                    target="_blank"
                   >
                     Learn More
                     <FaExternalLinkAlt className="size-3" />
