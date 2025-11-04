@@ -16,8 +16,8 @@ const bannerText = [
 export default function ScrollingBanner() {
   return (
     <Card className="relative overflow-hidden p-4">
-      <div className="absolute top-0 left-0 z-10 h-full w-[100px] bg-gradient-to-r from-white to-transparent" />
-      <div className="absolute top-0 right-0 z-10 h-full w-[100px] bg-gradient-to-l from-white to-transparent" />
+      <div className="absolute top-0 left-0 z-10 h-full w-[100px] bg-gradient-to-r from-card to-transparent" />
+      <div className="absolute top-0 right-0 z-10 h-full w-[100px] bg-gradient-to-l from-card to-transparent" />
 
       <div className="flex">
         <motion.div
@@ -33,7 +33,9 @@ export default function ScrollingBanner() {
         >
           {bannerText.concat(bannerText).map((item, i) => {
             const originalIndex = i % bannerText.length;
-            const key = `banner-${originalIndex}-${Math.floor(i / bannerText.length)}`;
+            const key = `banner-${originalIndex}-${Math.floor(
+              i / bannerText.length
+            )}`;
             return (
               <span className="mr-12" key={key}>
                 {item}

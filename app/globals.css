@@ -5,6 +5,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --border: #e5e7eb;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1a2332;
+  --card-foreground: #f1f5f9;
+  --border: #334155;
 }
 
 body {
@@ -20,6 +31,14 @@ body {
     transparent 1px
   );
   animation: grid-fade 10s ease-in-out infinite;
+}
+
+.dark .grid-background {
+  background-image: radial-gradient(
+    circle at center,
+    rgba(148, 163, 184, 0.15) 1px,
+    transparent 1px
+  );
 }
 
 @keyframes grid-fade {

@@ -5,6 +5,7 @@ export type ExperienceFrontmatter = {
   date: string;
   url?: string;
   logo: string;
+  logoDark?: string;
   tech: string[];
   startDate: string;
   endDate?: string;

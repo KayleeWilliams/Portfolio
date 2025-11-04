@@ -4,7 +4,7 @@ import { Nunito } from "next/font/google";
 import { Sidebar } from "@/components/sidebar";
 import "./globals.css";
 import { PageTransition } from "@/components/page-transistion";
-
+import { ThemeProvider } from "next-themes";
 const nunito = Nunito({
   subsets: ["latin"],
   variable: "--font-nunito",
@@ -23,23 +23,30 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${nunito.variable} grid-background antialiased`}>
-        <div className="min-h-screen">
-          <div className="container mx-auto max-w-screen-lg px-4 py-8">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              <div className="col-span-1">
-                <Sidebar />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          disableTransitionOnChange
+          enableSystem
+        >
+          <div className="min-h-screen">
+            <div className="container mx-auto max-w-screen-lg px-4 py-8">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                <div className="col-span-1">
+                  <Sidebar />
+                </div>
+                <main className="md:col-span-2">
+                  <PageTransition>
+                    <div className="space-y-6">{children}</div>
+                  </PageTransition>
+                </main>
               </div>
-              <main className="md:col-span-2">
-                <PageTransition>
-                  <div className="space-y-6">{children}</div>
-                </PageTransition>
-              </main>
             </div>
           </div>
-        </div>
-        <SpeedInsights />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );

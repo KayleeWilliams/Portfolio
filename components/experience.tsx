@@ -11,10 +11,20 @@ function ExperienceHeader({ experience }: { experience: Experience }) {
     <div className="group flex flex-row items-center gap-2">
       <Image
         alt={experience.company}
+        className={`${experience.logoDark ? "dark:hidden" : ""}`}
         height={30}
         src={experience.logo}
         width={30}
       />
+      {experience.logoDark && (
+        <Image
+          alt={experience.company}
+          className="hidden dark:block"
+          height={30}
+          src={experience.logoDark}
+          width={30}
+        />
+      )}
       <div>
         <p className="font-semibold">{experience.role}</p>
         <div className="flex flex-row items-center gap-2">
@@ -52,8 +62,8 @@ export default async function ExperienceList() {
               ) : (
                 <ExperienceHeader experience={e} />
               )}
-              <div className="mt-1 mb-2 flex flex-row items-center gap-2 text-gray-600">
-                <FaCalendarAlt className="size-3 text-gray-600" />
+              <div className="mt-1 mb-2 flex flex-row items-center gap-2 text-gray-600 dark:text-gray-400">
+                <FaCalendarAlt className="size-3" />
                 <p className="text-sm">
                   {formatDate(e.startDate)} -{" "}
                   {e.endDate ? formatDate(e.endDate) : "Present"}

@@ -7,6 +7,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Card, CardContent } from "@/components/base/card";
 import { Profile } from "@/components/profile";
 import Skills from "@/components/skills";
+import ThemeSwitcher from "./theme-switcher";
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -15,6 +16,7 @@ export function Sidebar() {
     <div className="space-y-6">
       <AnimatePresence mode="popLayout">
         {pathname !== "/" && (
+          // biome-ignore assist/source/useSortedAttributes: <explanation>
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
@@ -25,8 +27,11 @@ export function Sidebar() {
               damping: 20,
               opacity: { duration: 0.2 },
             }}
+            className="flex flex-row items-center justify-center gap-4"
           >
-            <Card className="transition-all duration-300 ease-in-out hover:bg-violet-50">
+            <ThemeSwitcher />
+
+            <Card className="w-full transition-all duration-300 ease-in-out hover:bg-violet-50 dark:hover:bg-violet-500">
               <CardContent className="py-4">
                 <Link
                   className="flex flex-row items-center justify-center gap-2 font-medium"

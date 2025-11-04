@@ -26,8 +26,8 @@ export default function Tech({ experience }: { experience: Experience }) {
           <CardTitle>Technologies</CardTitle>
         </CardHeader>
         <CardContent className="relative overflow-hidden">
-          <div className="absolute top-0 left-0 z-10 h-full w-[100px] rounded-lg bg-gradient-to-r from-white to-transparent" />
-          <div className="absolute top-0 right-0 z-10 h-full w-[100px] rounded-lg bg-gradient-to-l from-white to-transparent" />
+          <div className="absolute top-0 left-0 z-10 h-full w-[100px] rounded-lg bg-gradient-to-r from-card to-transparent" />
+          <div className="absolute top-0 right-0 z-10 h-full w-[100px] rounded-lg bg-gradient-to-l from-card to-transparent" />
 
           {/* First row */}
           <div className="mb-4 flex">
@@ -43,7 +43,9 @@ export default function Tech({ experience }: { experience: Experience }) {
               }}
             >
               {[...firstRow, ...firstRow].map((tech, i) => {
-                const key = `first-${tech}-${Math.floor(i / firstRow.length)}-${i % firstRow.length}`;
+                const key = `first-${tech}-${Math.floor(i / firstRow.length)}-${
+                  i % firstRow.length
+                }`;
                 return (
                   <span className="mr-12" key={key}>
                     {tech}
@@ -67,7 +69,9 @@ export default function Tech({ experience }: { experience: Experience }) {
               }}
             >
               {[...secondRow, ...secondRow].map((tech, i) => {
-                const key = `second-${tech}-${Math.floor(i / secondRow.length)}-${i % secondRow.length}`;
+                const key = `second-${tech}-${Math.floor(
+                  i / secondRow.length
+                )}-${i % secondRow.length}`;
                 return (
                   <span className="mr-12" key={key}>
                     {tech}
