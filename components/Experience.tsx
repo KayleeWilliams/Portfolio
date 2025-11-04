@@ -64,15 +64,15 @@ export default async function Experience() {
               <div className="flex flex-row items-center gap-2 mt-2 mb-1">
                 <div className="border-t border-border w-full" />
                 {!e.disableDetails && (
-                  <div className="flex items-center gap-2 ">
-                    <Link
-                      href={`/experience/${e.slug}`}
-                      className="flex items-center gap-2 text-sm text-primary hover:underline w-max underline-offset-2"
-                    >
-                      Learn More
-                    </Link>
+                  <Link
+                    href={`/experience/${e.slug}`}
+                    target="_blank"
+                    rel="noopener refereer"
+                    className="flex items-center gap-2 text-sm text-primary hover:underline w-max underline-offset-2"
+                  >
+                    Learn More
                     <FaExternalLinkAlt className="size-3" />
-                  </div>
+                  </Link>
                 )}
               </div>
             </div>

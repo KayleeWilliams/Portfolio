@@ -48,15 +48,15 @@ function ProjectCard({ project }: { project: Project }) {
             </div>
 
             {project.github && (
-              <div className="flex items-center gap-2">
-                <Link
-                  href={project.github}
-                  className="flex items-center gap-2 text-sm text-primary hover:underline"
-                >
-                  Github
-                </Link>
+              <Link
+                href={project.github}
+                target="_blank"
+                rel="noopener refereer"
+                className="flex items-center gap-2 text-sm text-primary hover:underline"
+              >
+                Github
                 <FaExternalLinkAlt className="size-3" />
-              </div>
+              </Link>
             )}
           </div>
         </div>
