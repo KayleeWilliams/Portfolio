@@ -10,7 +10,7 @@ export default function Company({ experience }: { experience: Experience }) {
       <div className="flex flex-row items-center gap-2">
         <Image
           alt={experience.company}
-          className="rounded"
+          className="rounded-sm"
           height={30}
           src={experience.logo}
           width={30}

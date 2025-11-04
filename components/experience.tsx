@@ -49,7 +49,7 @@ export default async function ExperienceList() {
       <CardTitle className="text-foreground">Experience</CardTitle>
 
       <Card className="relative">
-        <div className="-top-2 -right-[10px] lg:-top-1 lg:-right-[50px] absolute rotate-[4deg] rounded-full bg-violet-500 px-2 py-1 text-violet-50 text-xs lg:rotate-[18deg]">
+        <div className="-top-2 -right-[10px] lg:-top-1 lg:-right-[50px] absolute rotate-[4deg] rounded-full bg-violet-500 px-2 py-1 text-violet-50 text-xs lg:rotate-18">
           YOUR COMPANY HERE?
         </div>
         <CardContent className="space-y-3 pt-6">

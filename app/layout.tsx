@@ -32,7 +32,7 @@ export default function RootLayout({
           enableSystem
         >
           <div className="min-h-screen">
-            <div className="container mx-auto max-w-screen-lg px-4 py-8">
+            <div className="container mx-auto max-w-(--breakpoint-lg) px-4 py-8">
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                 <div className="col-span-1">
                   <Sidebar />

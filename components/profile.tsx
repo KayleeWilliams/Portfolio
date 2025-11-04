@@ -39,7 +39,7 @@ export const Profile = () => (
               src="/cat.jpeg"
               width={150}
             />
-            <Pill className="-rotate-[40deg] top-5 left-[3.5px] hidden md:block">
+            <Pill className="-rotate-40 top-5 left-[3.5px] hidden md:block">
               MY CAT 🐱
             </Pill>
           </div>

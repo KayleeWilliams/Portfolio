@@ -16,8 +16,8 @@ const bannerText = [
 export default function ScrollingBanner() {
   return (
     <Card className="relative overflow-hidden p-4">
-      <div className="absolute top-0 left-0 z-10 h-full w-[100px] bg-gradient-to-r from-card to-transparent" />
-      <div className="absolute top-0 right-0 z-10 h-full w-[100px] bg-gradient-to-l from-card to-transparent" />
+      <div className="absolute top-0 left-0 z-10 h-full w-[100px] bg-linear-to-r from-card to-transparent" />
+      <div className="absolute top-0 right-0 z-10 h-full w-[100px] bg-linear-to-l from-card to-transparent" />
 
       <div className="flex">
         <motion.div

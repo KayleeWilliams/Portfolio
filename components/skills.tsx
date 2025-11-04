@@ -31,7 +31,7 @@ export default function Skills() {
           </div>
         ))}
       </CardContent>
-      <Pill className="-right-4 -rotate-[15deg] bottom-1">I ❤️ Learning</Pill>
+      <Pill className="-right-4 -rotate-15 bottom-1">I ❤️ Learning</Pill>
     </Card>
   );
 }
