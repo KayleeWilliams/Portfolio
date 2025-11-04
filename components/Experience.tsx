@@ -68,7 +68,7 @@ export default async function Experience() {
                     href={`/experience/${e.slug}`}
                     target="_blank"
                     rel="noopener refereer"
-                    className="flex items-center gap-2 text-sm text-primary hover:underline w-max underline-offset-2"
+                    className="flex items-center gap-2 text-sm text-primary hover:underline w-max underline-offset-2 text-nowrap"
                   >
                     Learn More
                     <FaExternalLinkAlt className="size-3" />
