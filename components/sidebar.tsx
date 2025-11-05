@@ -16,9 +16,9 @@ export function Sidebar() {
     <div className="space-y-6">
       <AnimatePresence mode="popLayout">
         {pathname !== "/" && (
-          // biome-ignore assist/source/useSortedAttributes: <explanation>
           <motion.div
             animate={{ opacity: 1, y: 0 }}
+            className="flex flex-row items-center justify-center gap-4"
             exit={{ opacity: 0, y: 10 }}
             initial={{ opacity: 0, y: -10 }}
             transition={{
@@ -27,7 +27,6 @@ export function Sidebar() {
               damping: 20,
               opacity: { duration: 0.2 },
             }}
-            className="flex flex-row items-center justify-center gap-4"
           >
             <ThemeSwitcher />
 
