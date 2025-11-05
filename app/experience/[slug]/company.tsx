@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaCalendarAlt } from "react-icons/fa";
+import { RiCalendarLine } from "@remixicon/react";
 import { Card } from "@/components/base/card";
 import { formatDate } from "@/lib/utils/format-date";
 import type { Experience } from "@/types/experience";
@@ -21,7 +21,7 @@ export default function Company({ experience }: { experience: Experience }) {
         </div>
       </div>
       <div className="mt-1 mb-2 flex flex-row items-center gap-2 text-gray-600">
-        <FaCalendarAlt className="size-3 text-gray-600" />
+        <RiCalendarLine className="size-3 text-gray-600" />
         <p className="text-sm">
           {formatDate(experience.startDate)} -{" "}
           {experience.endDate ? formatDate(experience.endDate) : "Present"}

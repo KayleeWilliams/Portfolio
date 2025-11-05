@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "./base/card";
 
-import { FaMoon, FaSun } from "react-icons/fa";
+import { RiMoonLine, RiSunLine } from "@remixicon/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -40,9 +40,9 @@ export default function ThemeSwitcher() {
       <Card className="h-full transition-all duration-300 ease-in-out hover:bg-violet-50 dark:hover:bg-violet-500">
         <CardContent className="flex h-full w-full items-center justify-center p-0">
           {resolvedTheme === "dark" ? (
-            <FaSun className="size-4" />
+            <RiSunLine className="size-4" />
           ) : (
-            <FaMoon className="size-4" />
+            <RiMoonLine className="size-4" />
           )}
         </CardContent>
       </Card>

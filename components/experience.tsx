@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaCalendarAlt, FaExternalLinkAlt } from "react-icons/fa";
+import { RiCalendarLine, RiExternalLinkLine } from "@remixicon/react";
 import { getAllExperience } from "@/lib/get-all-experience";
 import { formatDate } from "@/lib/utils/format-date";
 import type { Experience } from "@/types/experience";
@@ -35,7 +35,7 @@ function ExperienceHeader({ experience }: { experience: Experience }) {
           >
             {experience.company}
           </p>{" "}
-          {experience.url && <FaExternalLinkAlt className="size-3" />}
+          {experience.url && <RiExternalLinkLine className="size-4" />}
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@ export default async function ExperienceList() {
                 <ExperienceHeader experience={e} />
               )}
               <div className="mt-1 mb-2 flex flex-row items-center gap-2 text-gray-600 dark:text-gray-400">
-                <FaCalendarAlt className="size-3" />
+                <RiCalendarLine className="size-4" />
                 <p className="text-sm">
                   {formatDate(e.startDate)} -{" "}
                   {e.endDate ? formatDate(e.endDate) : "Present"}
@@ -79,7 +79,7 @@ export default async function ExperienceList() {
                     href={`/experience/${e.slug}`}
                   >
                     Learn More
-                    <FaExternalLinkAlt className="size-3" />
+                    <RiExternalLinkLine className="size-4" />
                   </Link>
                 )}
               </div>

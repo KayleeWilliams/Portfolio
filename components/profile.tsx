@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-
+import { RiGithubFill, RiTwitterFill, RiLinkedinFill } from "@remixicon/react";
 import { Card, CardContent } from "@/components/base/card";
 import Pill from "@/components/base/pill";
 
@@ -10,17 +9,17 @@ const socials = [
   {
     name: "Github",
     link: "https://github.com/KayleeWilliams",
-    icon: <FaGithub className="size-4 text-violet-400" />,
+    icon: <RiGithubFill className="size-4 text-violet-400" />,
   },
   {
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/kaylee-w",
-    icon: <FaLinkedin className="size-4 text-violet-400" />,
+    icon: <RiLinkedinFill className="size-4 text-violet-400" />,
   },
   {
     name: "Twitter",
     link: "https://x.com/kaylee_dev",
-    icon: <FaTwitter className="size-4 text-violet-400" />,
+    icon: <RiTwitterFill className="size-4 text-violet-400" />,
   },
 ];
 

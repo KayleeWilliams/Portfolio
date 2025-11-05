@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaArrowLeft } from "react-icons/fa";
+import { RiArrowLeftLine } from "@remixicon/react";
 import { Card, CardContent } from "@/components/base/card";
 import { Profile } from "@/components/profile";
 import Skills from "@/components/skills";
@@ -37,7 +37,7 @@ export function Sidebar() {
                   className="flex flex-row items-center justify-center gap-2 font-medium"
                   href="/"
                 >
-                  <FaArrowLeft className="size-4" />
+                  <RiArrowLeftLine className="size-4" />
                   Go Back
                 </Link>
               </CardContent>

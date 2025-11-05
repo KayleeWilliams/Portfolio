@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaExternalLinkAlt, FaStar } from "react-icons/fa";
+import { RiExternalLinkLine, RiStarLine } from "@remixicon/react";
 import { getAllProjects } from "@/lib/get-all-projects";
 import type { Project } from "@/types/project";
 import { Card, CardContent, CardTitle } from "./base/card";
@@ -39,7 +39,7 @@ function ProjectCard({ project }: { project: Project }) {
             <span className="group-hover:underline">{project.title}</span>
             {project.stars && (
               <span className="flex items-center gap-1 text-muted-foreground text-sm">
-                <FaStar className="size-3" />
+                <RiStarLine className="size-4" />
                 {project.stars?.toLocaleString()}
               </span>
             )}
@@ -63,7 +63,7 @@ function ProjectCard({ project }: { project: Project }) {
                 target="_blank"
               >
                 Github
-                <FaExternalLinkAlt className="size-3" />
+                <RiExternalLinkLine className="size-4" />
               </Link>
             )}
           </div>
