@@ -35,6 +35,7 @@ export function Sidebar() {
                 <Link
                   className="flex flex-row items-center justify-center gap-2 font-medium"
                   href="/"
+                  prefetch
                 >
                   <RiArrowLeftLine className="size-4" />
                   Go Back
