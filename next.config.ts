@@ -10,6 +10,7 @@ const withMDX = createMDX({
 });
 
 const nextConfig: NextConfig = {
+  reactCompiler: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 };
 

@@ -1,10 +1,10 @@
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import { Sidebar } from "@/components/sidebar";
 import "./globals.css";
 import { PageTransition } from "@/components/page-transistion";
-import { ThemeProvider } from "next-themes";
+import Providers from "./providers";
+
 const nunito = Nunito({
   subsets: ["latin"],
   variable: "--font-nunito",
@@ -25,12 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${nunito.variable} grid-background antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          disableTransitionOnChange
-          enableSystem
-        >
+        <Providers>
           <div className="min-h-screen">
             <div className="container mx-auto max-w-(--breakpoint-lg) px-4 py-8">
               <div className="grid grid-cols-1 gap-0 md:grid-cols-3 md:gap-6">
@@ -45,8 +40,7 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          <SpeedInsights />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
