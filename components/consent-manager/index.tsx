@@ -13,8 +13,9 @@ export default function ConsentManager({
   return (
     <ConsentManagerProvider
       options={{
-        mode: "offline",
+        mode: "c15t",
         consentCategories: ["measurement"],
+        backendURL: "/api/prawns",
       }}
     >
       <ConsentBanner />

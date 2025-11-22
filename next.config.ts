@@ -12,6 +12,14 @@ const withMDX = createMDX({
 const nextConfig: NextConfig = {
   reactCompiler: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  rewrites() {
+    return [
+      {
+        source: "/api/prawns/:path*",
+        destination: "https://kaylee-europe-portfolio.c15t.dev/:path*",
+      },
+    ];
+  },
 };
 
 export default withMDX(nextConfig);
