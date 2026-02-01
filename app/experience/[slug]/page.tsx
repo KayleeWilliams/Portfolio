@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllExperience } from "@/lib/get-all-experience";
 import { getExperience } from "@/lib/get-experience";
@@ -14,6 +15,28 @@ export async function generateStaticParams() {
   return experiences.map((e) => ({
     slug: e.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const experience = await getExperience(slug);
+
+  if (!experience) {
+    return {};
+  }
+
+  return {
+    title: `${experience.role} at ${experience.company}`,
+    description: experience.description,
+    openGraph: {
+      title: `${experience.role} at ${experience.company}`,
+      description: experience.description,
+    },
+  };
 }
 
 export default async function ExperiencePage({
