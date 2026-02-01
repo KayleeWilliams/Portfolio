@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -31,17 +28,7 @@ export default function Tech({ experience }: { experience: Experience }) {
 
           {/* First row */}
           <div className="mb-4 flex">
-            <motion.div
-              animate={{ x: "-50%" }}
-              className="flex whitespace-nowrap"
-              initial={{ x: "0%" }}
-              transition={{
-                repeat: Number.POSITIVE_INFINITY,
-                duration: 20,
-                ease: "linear",
-                repeatType: "loop",
-              }}
-            >
+            <div className="marquee-left-fast flex whitespace-nowrap">
               {[...firstRow, ...firstRow].map((tech, i) => {
                 const key = `first-${tech}-${Math.floor(i / firstRow.length)}-${
                   i % firstRow.length
@@ -52,22 +39,12 @@ export default function Tech({ experience }: { experience: Experience }) {
                   </span>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
 
           {/* Second row */}
           <div className="flex">
-            <motion.div
-              animate={{ x: "0%" }}
-              className="flex whitespace-nowrap"
-              initial={{ x: "-50%" }}
-              transition={{
-                repeat: Number.POSITIVE_INFINITY,
-                duration: 25,
-                ease: "linear",
-                repeatType: "loop",
-              }}
-            >
+            <div className="marquee-right flex whitespace-nowrap">
               {[...secondRow, ...secondRow].map((tech, i) => {
                 const key = `second-${tech}-${Math.floor(
                   i / secondRow.length
@@ -78,7 +55,7 @@ export default function Tech({ experience }: { experience: Experience }) {
                   </span>
                 );
               })}
-            </motion.div>
+            </div>
           </div>
         </CardContent>
       </Card>

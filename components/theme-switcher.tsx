@@ -16,8 +16,8 @@ export default function ThemeSwitcher() {
 
   if (!isMounted) {
     return (
-      <button disabled onClick={() => null} type="button">
-        <Card className="aspect-square h-14 transition-all duration-300 ease-in-out hover:bg-violet-50 dark:hover:bg-violet-500">
+      <button aria-label="Toggle theme" disabled type="button">
+        <Card className="aspect-square h-14 transition-[background-color] duration-150 ease hover:bg-violet-50 dark:hover:bg-violet-500">
           <CardContent className="flex h-full w-full items-center justify-center p-0">
             <div className="size-4" />
           </CardContent>
@@ -28,11 +28,11 @@ export default function ThemeSwitcher() {
 
   return (
     <button
-      className=""
+      aria-label={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       type="button"
     >
-      <Card className="aspect-square h-14 transition-all duration-300 ease-in-out hover:bg-violet-50 dark:hover:bg-violet-500">
+      <Card className="aspect-square h-14 transition-[background-color] duration-150 ease hover:bg-violet-50 active:scale-[0.97] dark:hover:bg-violet-500">
         <CardContent className="flex h-full w-full items-center justify-center p-0">
           {resolvedTheme === "dark" ? (
             <RiSunLine className="size-4" />

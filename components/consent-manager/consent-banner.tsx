@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "../base/card";
-import { CookieBanner } from "@c15t/react";
+import { CookieBanner } from "@c15t/nextjs";
 
 export default function ConsentBanner() {
   return (
@@ -30,7 +30,7 @@ export default function ConsentBanner() {
           >
             <button
               autoFocus
-              className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-medium text-card-foreground text-sm transition-all duration-200 ease-in-out hover:border-violet-200 hover:bg-violet-50 dark:hover:border-violet-800 dark:hover:bg-violet-950"
+              className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-medium text-card-foreground text-sm transition-[background-color,border-color] duration-150 ease hover:border-violet-200 hover:bg-violet-50 active:scale-[0.97] dark:hover:border-violet-800 dark:hover:bg-violet-950"
               type="button"
             >
               Reject Analytics
@@ -42,7 +42,7 @@ export default function ConsentBanner() {
             themeKey="banner.footer.accept-button"
           >
             <button
-              className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-medium text-card-foreground text-sm transition-all duration-200 ease-in-out hover:border-violet-200 hover:bg-violet-50 dark:hover:border-violet-800 dark:hover:bg-violet-950"
+              className="flex-1 rounded-lg border border-border bg-card px-4 py-2.5 font-medium text-card-foreground text-sm transition-[background-color,border-color] duration-150 ease hover:border-violet-200 hover:bg-violet-50 active:scale-[0.97] dark:hover:border-violet-800 dark:hover:bg-violet-950"
               type="button"
             >
               Accept Analytics

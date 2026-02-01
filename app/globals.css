@@ -51,6 +51,11 @@ body {
   background: var(--background);
 }
 
+/* Typography improvements */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
 .grid-background {
   background-size: 40px 40px;
   background-image: radial-gradient(
@@ -58,7 +63,7 @@ body {
     rgba(2, 2, 2, 0.15) 1px,
     transparent 1px
   );
-  animation: grid-fade 10s ease-in-out infinite;
+  animation: grid-fade 10s linear infinite;
 }
 
 .dark .grid-background {
@@ -75,5 +80,49 @@ body {
   }
   100% {
     background-position: 40px 20px;
+  }
+}
+
+/* Marquee animations */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+.marquee-left-fast {
+  animation: marquee-left 20s linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-right 25s linear infinite;
+}
+
+/* Accessibility: Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .grid-background {
+    animation: none;
+  }
+  
+  .marquee-left,
+  .marquee-left-fast,
+  .marquee-right {
+    animation: none;
   }
 }

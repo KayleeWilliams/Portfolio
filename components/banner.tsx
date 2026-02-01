@@ -1,16 +1,13 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Card } from "./base/card";
 
 const bannerText = [
-  <span key={0}>📚 Always Learning</span>,
-  <span key={2}>🚀 React • TypeScript • Python</span>,
-  <span key={3}>🎨 UI/UX Enthusiast</span>,
-  <span key={4}>🔎 console.log(&quot;here?&quot;)</span>,
-  <span key={5}>🌍 Love Building Useful Tools</span>,
-  <span key={6}>🦆 Who is JSON?</span>,
-  <span key={7}>💡 Can this be improved? Most likely.</span>,
+  "📚 Always Learning",
+  "🚀 React • TypeScript • Python",
+  "🎨 UI/UX Enthusiast",
+  "🔎 console.log(\"here?\")",
+  "🌍 Love Building Useful Tools",
+  "🦆 Who is JSON?",
+  "💡 Can this be improved? Most likely.",
 ];
 
 export default function ScrollingBanner() {
@@ -20,17 +17,7 @@ export default function ScrollingBanner() {
       <div className="absolute top-0 right-0 z-10 h-full w-[100px] bg-linear-to-l from-card to-transparent" />
 
       <div className="flex">
-        <motion.div
-          animate={{ x: "-50%" }}
-          className="flex whitespace-nowrap"
-          initial={{ x: "0%" }}
-          transition={{
-            repeat: Number.POSITIVE_INFINITY,
-            duration: 30,
-            ease: "linear",
-            repeatType: "loop",
-          }}
-        >
+        <div className="marquee-left flex whitespace-nowrap">
           {bannerText.concat(bannerText).map((item, i) => {
             const originalIndex = i % bannerText.length;
             const key = `banner-${originalIndex}-${Math.floor(
@@ -42,7 +29,7 @@ export default function ScrollingBanner() {
               </span>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </Card>
   );
