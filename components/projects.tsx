@@ -3,6 +3,7 @@ import { RiExternalLinkLine, RiStarLine } from "@remixicon/react";
 import { getAllProjects } from "@/lib/get-all-projects";
 import type { Project } from "@/types/project";
 import { Card, CardContent, CardTitle } from "./base/card";
+import { withUtm } from "@/lib/utils/utm";
 
 export default function Projects() {
   return (
@@ -28,13 +29,22 @@ async function ProjectCards() {
 }
 
 function ProjectCard({ project }: { project: Project }) {
+  const projectUrl = project.url || project.github || project.demo || "#";
+  const urlWithUtm = projectUrl !== "#" 
+    ? withUtm(projectUrl, "project-card", project.slug) 
+    : "#";
+  const githubWithUtm = project.github 
+    ? withUtm(project.github, "project-card", `${project.slug}-github`) 
+    : undefined;
+
   return (
     <Card key={project.slug}>
       <CardContent className="h-full pt-6">
         <div className="flex h-full flex-col">
           <Link
             className="group flex items-center justify-between font-semibold text-primary"
-            href={project.url || project.github || project.demo || "#"}
+            href={urlWithUtm}
+            target={projectUrl !== "#" ? "_blank" : undefined}
           >
             <span className="group-hover:underline">{project.title}</span>
             {project.stars && (
@@ -55,11 +65,11 @@ function ProjectCard({ project }: { project: Project }) {
               ))}
             </div>
 
-            {project.github && (
+            {githubWithUtm && (
               <Link
                 className="flex items-center gap-2 text-primary text-sm hover:underline"
-                href={project.github}
-                rel="noopener refereer"
+                href={githubWithUtm}
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Github

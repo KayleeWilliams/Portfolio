@@ -3,11 +3,13 @@ import { Card } from "./base/card";
 const bannerText = [
   "📚 Always Learning",
   "🚀 React • TypeScript • Python",
-  "🎨 UI/UX Enthusiast",
+  "🎨 Design-minded Engineer",
   "🔎 console.log(\"here?\")",
-  "🌍 Love Building Useful Tools",
-  "🦆 Who is JSON?",
+  "🛠️ Shipping products, not features",
+  "⭐ Building c15t",
   "💡 Can this be improved? Most likely.",
+  "🌐 Open Source Contributor",
+  "💜 TypeScript Maximalist",
 ];
 
 export default function ScrollingBanner() {

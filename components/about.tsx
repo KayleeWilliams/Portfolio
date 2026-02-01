@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "./base/card";
+import { withUtm } from "@/lib/utils/utm";
 
 export default function About() {
   return (
@@ -6,12 +8,31 @@ export default function About() {
       <CardHeader>
         <CardTitle>About Me</CardTitle>
       </CardHeader>
-      <CardContent>
-        I am a full-stack engineer who genuinely loves the whole process of
-        building web and mobile apps. Currently, Right now, I'm deep into
-        projects like c15t and Consent, which is a developer-first,
-        high-performance, open-source web standard for managing consent. Making
-        life easier for developers and the web experience better for everyone.
+      <CardContent className="space-y-3 text-foreground">
+        <p>
+          I'm a co-author of{" "}
+          <Link
+            className="font-medium text-primary hover:underline"
+            href={withUtm("https://c15t.com", "about", "c15t")}
+            target="_blank"
+          >
+            c15t
+          </Link>
+          , the open-source standard for consent management.
+          As Founding Engineer at{" "}
+          <Link
+            className="font-medium text-primary hover:underline"
+            href={withUtm("https://consent.io", "about", "consent")}
+            target="_blank"
+          >
+            Consent
+          </Link>
+          , I'm building the infrastructure for compliant consent management.
+        </p>
+        <p>
+          I care about developer experience, open source, and building tools
+          people actually want to use.
+        </p>
       </CardContent>
     </Card>
   );

@@ -1,6 +1,7 @@
 import About from "@/components/about";
 import ScrollingBanner from "@/components/banner";
 import Experience from "@/components/experience";
+import Hero from "@/components/hero";
 import Projects from "@/components/projects";
 import Skills from "@/components/skills";
 import ThemeSwitcher from "@/components/theme-switcher";
@@ -15,6 +16,7 @@ export default function Home() {
         <ScrollingBanner />
         <ThemeSwitcher />
       </div>
+      <Hero />
       <About />
       <Experience />
       <Projects />

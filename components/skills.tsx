@@ -1,18 +1,18 @@
 import { Card, CardContent, CardHeader, CardTitle } from "./base/card";
 import Pill from "./base/pill";
 
-type SkillCategory = {
+interface SkillCategory {
   name: string;
   skills: string[];
-};
+}
 
 const skillCategories: SkillCategory[] = [
-  { name: "Languages", skills: ["TypeScript", "Python", "Swift"] },
+  { name: "Languages", skills: ["TypeScript", "Python", "Swift", "GraphQL"] },
   { name: "Frontend", skills: ["Next.js", "React", "HTML/CSS", "Vue.js"] },
   { name: "Backend", skills: ["Node.js", "Express", "Django", "Flask"] },
   { name: "Databases", skills: ["PostgreSQL", "MongoDB", "SQLite"] },
-  { name: "Cloud & DevOps", skills: ["Google Cloud", "Docker"] },
-  { name: "Tools", skills: ["Git", "Figma", "VS Code"] },
+  { name: "Cloud & DevOps", skills: ["Vercel", "Google Cloud", "Docker"] },
+  { name: "Tools", skills: ["Git", "Figma", "Playwright", "PostHog"] },
 ];
 
 export default function Skills() {
@@ -31,7 +31,7 @@ export default function Skills() {
           </div>
         ))}
       </CardContent>
-      <Pill className="-right-4 -rotate-15 bottom-1">I ❤️ Learning</Pill>
+      <Pill className="-right-4 bottom-1 -rotate-15">I ❤️ Learning</Pill>
     </Card>
   );
 }
