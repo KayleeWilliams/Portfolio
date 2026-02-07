@@ -7,6 +7,7 @@ export type ProjectFrontmatter = {
   github?: string;
   demo?: string;
   featured?: boolean;
+  active?: boolean;
 
   /**
    * URL for the project

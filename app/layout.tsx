@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+import OSSActivity from "@/components/oss-activity";
+import Profile from "@/components/profile";
 import { Sidebar } from "@/components/sidebar";
 import Footer from "@/components/footer";
+import { personConfig } from "@/lib/site-config";
 import "./globals.css";
 import { PageTransition } from "@/components/page-transition";
 import Providers from "./providers";
@@ -13,15 +16,14 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.kaylee.dev"),
+  metadataBase: new URL(personConfig.siteUrl),
   title: {
-    default: "Kaylee | Software Engineer",
-    template: "%s | Kaylee",
+    default: `${personConfig.name} | Software Engineer`,
+    template: `%s | ${personConfig.name}`,
   },
-  description:
-    "Kaylee Williams - Full-Stack Engineer building c15t and Consent. Open source contributor focused on developer experience.",
+  description: personConfig.description,
   keywords: [
-    "Kaylee Williams",
+    personConfig.name,
     "software engineer",
     "full-stack developer",
     "open source",
@@ -29,20 +31,19 @@ export const metadata: Metadata = {
     "TypeScript",
     "React",
   ],
-  authors: [{ name: "Kaylee Williams" }],
-  creator: "Kaylee Williams",
+  authors: [{ name: personConfig.name }],
+  creator: personConfig.name,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.kaylee.dev",
-    siteName: "Kaylee",
-    title: "Kaylee | Software Engineer",
-    description:
-      "Kaylee Williams - Full-Stack Engineer building c15t and Consent.",
+    url: personConfig.siteUrl,
+    siteName: personConfig.name,
+    title: `${personConfig.name} | Software Engineer`,
+    description: personConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@kaylee_dev",
+    creator: personConfig.twitterHandle,
   },
   robots: {
     index: true,
@@ -53,14 +54,10 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Kaylee Williams",
-  url: "https://www.kaylee.dev",
-  jobTitle: "Full-Stack Engineer",
-  sameAs: [
-    "https://github.com/KayleeWilliams",
-    "https://linkedin.com/in/kaylee-w",
-    "https://x.com/kaylee_dev",
-  ],
+  name: personConfig.name,
+  url: personConfig.siteUrl,
+  jobTitle: personConfig.jobTitle,
+  sameAs: personConfig.sameAs,
 };
 
 export default function RootLayout({
@@ -68,6 +65,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const githubUrl = personConfig.sameAs.find((url) => url.includes("github.com/"));
+  const githubUsername = githubUrl?.split("/").at(-1) ?? "";
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${nunito.variable} grid-background antialiased`}>
@@ -81,7 +81,12 @@ export default function RootLayout({
             <div className="container mx-auto max-w-(--breakpoint-lg) px-4 py-8">
               <div className="grid grid-cols-1 gap-0 md:grid-cols-3 md:gap-6">
                 <div className="col-span-1">
-                  <Sidebar />
+                  <Sidebar
+                    profile={<Profile />}
+                    secondary={
+                      githubUsername ? <OSSActivity username={githubUsername} /> : null
+                    }
+                  />
                 </div>
                 <main className="md:col-span-2">
                   <PageTransition>

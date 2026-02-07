@@ -5,11 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { RiArrowLeftLine } from "@remixicon/react";
 import { Card, CardContent } from "@/components/base/card";
-import { Profile } from "@/components/profile";
-import Skills from "@/components/skills";
 import ThemeSwitcher from "./theme-switcher";
 
-export function Sidebar() {
+export function Sidebar({
+  profile,
+  secondary,
+}: {
+  profile: React.ReactNode;
+  secondary?: React.ReactNode;
+}) {
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
 
@@ -46,11 +50,9 @@ export function Sidebar() {
         )}
       </AnimatePresence>
       <motion.div layout={!shouldReduceMotion}>
-        <Profile />
+        {profile}
       </motion.div>
-      <motion.div className="hidden md:block" layout={!shouldReduceMotion}>
-        <Skills />
-      </motion.div>
+      {secondary ? <motion.div layout={!shouldReduceMotion}>{secondary}</motion.div> : null}
     </div>
   );
 }

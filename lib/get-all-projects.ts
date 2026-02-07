@@ -8,7 +8,10 @@ const projectsDirectory = path.join(process.cwd(), "content/projects");
 const MDX_REGEX = /\.mdx$/;
 
 export async function getAllProjects(): Promise<Project[]> {
-  const fileNames = fs.readdirSync(projectsDirectory);
+  const fileNames = fs.readdirSync(projectsDirectory).filter((fileName) => {
+    const fullPath = path.join(projectsDirectory, fileName);
+    return fs.statSync(fullPath).isFile() && MDX_REGEX.test(fileName);
+  });
 
   const projectsWithoutStars = fileNames.map((fileName) => {
     const slug = fileName.replace(MDX_REGEX, "");
@@ -35,6 +38,12 @@ export async function getAllProjects(): Promise<Project[]> {
   );
 
   return projects.sort((a, b) => {
+    if (a.active && !b.active) {
+      return -1;
+    }
+    if (!a.active && b.active) {
+      return 1;
+    }
     if (a.featured && !b.featured) {
       return -1;
     }

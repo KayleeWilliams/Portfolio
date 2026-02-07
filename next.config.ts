@@ -13,12 +13,22 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   rewrites() {
-    return [
-      {
-        source: "/api/prawns/:path*",
-        destination: "https://kaylee-europe-portfolio.c15t.dev/:path*",
-      },
-    ];
+    return {
+      beforeFiles: [
+        {
+          source: "/",
+          has: [{ type: "header", key: "accept", value: ".*text/markdown.*" }],
+          destination: "/markdown",
+        },
+      ],
+      afterFiles: [
+        {
+          source: "/api/prawns/:path*",
+          destination: "https://kaylee-europe-portfolio.c15t.dev/:path*",
+        },
+      ],
+      fallback: [],
+    };
   },
 };
 

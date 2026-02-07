@@ -1,32 +1,31 @@
 import { RiDownloadLine, RiExternalLinkLine, RiStarFill } from "@remixicon/react";
 import Link from "next/link";
 import { fetchNpmDownloads } from "@/lib/get-npm-downloads";
+import { getSiteContent } from "@/lib/get-site-content";
 import { fetchStars } from "@/lib/get-stars";
+import { formatDownloads } from "@/lib/utils/format-downloads";
 import { withUtm } from "@/lib/utils/utm";
 import { Card, CardContent } from "./base/card";
 
-const C15T_GITHUB = "https://github.com/c15t/c15t";
-const C15T_NPM = "c15t";
-const C15T_URL = "https://c15t.com";
-const C15T_STATS = "https://c15t.com/stats";
-const C15T_DOCS = "https://c15t.com/docs";
-
-function formatDownloads(downloads: number): string {
-  const million = 1_000_000;
-  const thousand = 1000;
-  if (downloads >= million) {
-    return `${(downloads / million).toFixed(1)}M`;
-  }
-  if (downloads >= thousand) {
-    return `${(downloads / thousand).toFixed(1)}k`;
-  }
-  return downloads.toLocaleString();
-}
+type HeroFrontmatter = {
+  title?: string;
+  description?: string;
+  github?: string;
+  npmPackage?: string;
+  projectUrl?: string;
+  statsUrl?: string;
+  docsUrl?: string;
+};
 
 export default async function Hero() {
+  const hero = await getSiteContent<HeroFrontmatter>("hero");
+  if (!hero?.projectUrl || !hero.github || !hero.npmPackage) {
+    return null;
+  }
+
   const [stars, downloads] = await Promise.all([
-    fetchStars(C15T_GITHUB),
-    fetchNpmDownloads(C15T_NPM),
+    fetchStars(hero.github),
+    fetchNpmDownloads(hero.npmPackage),
   ]);
 
   return (
@@ -34,9 +33,11 @@ export default async function Hero() {
       <CardContent className="pt-6">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
-            <h2 className="font-bold text-lg text-primary md:text-xl">c15t</h2>
+            <h2 className="font-bold text-lg text-primary md:text-xl">
+              {hero.title ?? "c15t"}
+            </h2>
             <p className="text-foreground text-sm md:text-base">
-              The open-source standard for consent management. High-performance cookie banner with full developer control.
+              {hero.description}
             </p>
           </div>
 
@@ -64,28 +65,35 @@ export default async function Hero() {
           <div className="flex flex-wrap gap-3">
             <Link
               className="ease inline-flex items-center gap-1.5 rounded-md bg-violet-500 px-4 py-2 font-medium text-sm text-white transition-[background-color] duration-150 hover:bg-violet-600 active:scale-[0.98]"
-              href={withUtm(C15T_URL, "hero", "view-project")}
+              href={withUtm(hero.projectUrl, "hero", "view-project")}
+              rel="noopener noreferrer"
               target="_blank"
             >
               View Project
               <RiExternalLinkLine className="size-4" />
             </Link>
-            <Link
-              className="ease inline-flex items-center gap-1.5 rounded-md border border-violet-200 bg-white px-4 py-2 font-medium text-sm text-violet-600 transition-[background-color,border-color] duration-150 hover:border-violet-300 hover:bg-violet-50 active:scale-[0.98] dark:border-violet-500/30 dark:bg-transparent dark:text-violet-400 dark:hover:border-violet-500/50 dark:hover:bg-violet-500/10"
-              href={withUtm(C15T_STATS, "hero", "view-stats")}
-              target="_blank"
-            >
-              View Stats
-              <RiExternalLinkLine className="size-4" />
-            </Link>
-            <Link
-              className="ease inline-flex items-center gap-1.5 rounded-md border border-violet-200 bg-white px-4 py-2 font-medium text-sm text-violet-600 transition-[background-color,border-color] duration-150 hover:border-violet-300 hover:bg-violet-50 active:scale-[0.98] dark:border-violet-500/30 dark:bg-transparent dark:text-violet-400 dark:hover:border-violet-500/50 dark:hover:bg-violet-500/10"
-              href={withUtm(C15T_DOCS, "hero", "read-docs")}
-              target="_blank"
-            >
-              Read Docs
-              <RiExternalLinkLine className="size-4" />
-            </Link>
+            {hero.statsUrl && (
+              <Link
+                className="ease inline-flex items-center gap-1.5 rounded-md border border-violet-200 bg-white px-4 py-2 font-medium text-sm text-violet-600 transition-[background-color,border-color] duration-150 hover:border-violet-300 hover:bg-violet-50 active:scale-[0.98] dark:border-violet-500/30 dark:bg-transparent dark:text-violet-400 dark:hover:border-violet-500/50 dark:hover:bg-violet-500/10"
+                href={withUtm(hero.statsUrl, "hero", "view-stats")}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                View Stats
+                <RiExternalLinkLine className="size-4" />
+              </Link>
+            )}
+            {hero.docsUrl && (
+              <Link
+                className="ease inline-flex items-center gap-1.5 rounded-md border border-violet-200 bg-white px-4 py-2 font-medium text-sm text-violet-600 transition-[background-color,border-color] duration-150 hover:border-violet-300 hover:bg-violet-50 active:scale-[0.98] dark:border-violet-500/30 dark:bg-transparent dark:text-violet-400 dark:hover:border-violet-500/50 dark:hover:bg-violet-500/10"
+                href={withUtm(hero.docsUrl, "hero", "read-docs")}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Read Docs
+                <RiExternalLinkLine className="size-4" />
+              </Link>
+            )}
           </div>
         </div>
       </CardContent>

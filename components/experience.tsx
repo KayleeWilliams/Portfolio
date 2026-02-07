@@ -49,16 +49,14 @@ export default async function ExperienceList() {
     <div className="space-y-4">
       <CardTitle className="text-foreground">Experience</CardTitle>
 
-      <Card className="relative">
-        <div className="absolute -top-2 -right-[10px] rotate-[4deg] rounded-full bg-violet-500 px-2 py-1 text-violet-50 text-xs lg:-top-1 lg:-right-[50px] lg:rotate-18">
-          YOUR COMPANY HERE?
-        </div>
+      <Card>
         <CardContent className="space-y-3 pt-6">
           {experience.map((e) => (
             <div key={e.slug}>
               {e.url ? (
                 <Link
                   href={withUtm(e.url, "experience", e.slug)}
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   <ExperienceHeader experience={e} />

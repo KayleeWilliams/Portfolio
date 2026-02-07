@@ -8,7 +8,6 @@ import { withUtm } from "@/lib/utils/utm";
 export default function Projects() {
   return (
     <div>
-      <CardTitle className="mb-4 text-foreground">Featured Projects</CardTitle>
       <ProjectCards />
     </div>
   );
@@ -16,15 +15,23 @@ export default function Projects() {
 
 async function ProjectCards() {
   const projects = await getAllProjects();
+  const activeProjects = projects.filter((project) => project.active);
+  const onlyC15t =
+    activeProjects.length === 1 && activeProjects[0]?.slug === "c15t";
+
+  if (activeProjects.length === 0 || onlyC15t) {
+    return null;
+  }
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-      {projects
-        .filter((project) => project.featured)
-        .map((project) => (
+    <>
+      <CardTitle className="mb-4 text-foreground">Open Source Work</CardTitle>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {activeProjects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
-    </div>
+      </div>
+    </>
   );
 }
 
@@ -44,6 +51,7 @@ function ProjectCard({ project }: { project: Project }) {
           <Link
             className="group flex items-center justify-between font-semibold text-primary"
             href={urlWithUtm}
+            rel={projectUrl !== "#" ? "noopener noreferrer" : undefined}
             target={projectUrl !== "#" ? "_blank" : undefined}
           >
             <span className="group-hover:underline">{project.title}</span>

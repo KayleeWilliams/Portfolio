@@ -1,0 +1,15 @@
+{
+  "name": "Kaylee Williams",
+  "headline": "Full-Stack Engineer",
+  "jobTitle": "Full-Stack Engineer",
+  "siteUrl": "https://www.kaylee.dev",
+  "description": "Kaylee Williams - Full-Stack Engineer building c15t and Consent. Open source, developer experience, consent infrastructure.",
+  "twitterHandle": "@kaylee_dev",
+  "sameAs": [
+    "https://github.com/KayleeWilliams",
+    "https://linkedin.com/in/kaylee-w",
+    "https://x.com/kaylee_dev"
+  ],
+  "sourceRepo": "https://github.com/KayleeWilliams/Portfolio",
+  "primaryProjectUrl": "https://c15t.com"
+}

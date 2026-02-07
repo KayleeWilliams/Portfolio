@@ -1,5 +1,6 @@
 import { RiGithubFill } from "@remixicon/react";
 import Link from "next/link";
+import { personConfig } from "@/lib/site-config";
 import { withUtm } from "@/lib/utils/utm";
 
 export default function Footer() {
@@ -15,7 +16,8 @@ export default function Footer() {
             But if it did, it'd use{" "}
             <Link
               className="font-medium text-primary hover:underline"
-              href={withUtm("https://c15t.com", "footer", "c15t")}
+              href={withUtm(personConfig.primaryProjectUrl, "footer", "c15t")}
+              rel="noopener noreferrer"
               target="_blank"
             >
               c15t
@@ -26,14 +28,15 @@ export default function Footer() {
         <div className="flex items-center gap-3 text-muted-foreground/60">
           <Link
             className="flex items-center gap-1 transition-colors duration-150 hover:text-foreground"
-            href={withUtm("https://github.com/KayleeWilliams/Portfolio", "footer", "view-source")}
+            href={withUtm(personConfig.sourceRepo, "footer", "view-source")}
+            rel="noopener noreferrer"
             target="_blank"
           >
             <RiGithubFill className="size-4" />
             <span>View Source</span>
           </Link>
           <span>·</span>
-          <p>© {currentYear} Kaylee Williams</p>
+          <p>© {currentYear} {personConfig.name}</p>
         </div>
       </div>
     </footer>
