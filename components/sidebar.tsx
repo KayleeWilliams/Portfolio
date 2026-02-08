@@ -16,6 +16,7 @@ export function Sidebar({
 }) {
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
+  const isHome = pathname === "/";
 
   return (
     <div className="space-y-6">
@@ -49,10 +50,20 @@ export function Sidebar({
           </motion.div>
         )}
       </AnimatePresence>
-      <motion.div layout={!shouldReduceMotion}>
+      <motion.div
+        className={isHome ? "hidden md:block" : undefined}
+        layout={!shouldReduceMotion}
+      >
         {profile}
       </motion.div>
-      {secondary ? <motion.div layout={!shouldReduceMotion}>{secondary}</motion.div> : null}
+      {secondary ? (
+        <motion.div
+          className={isHome ? "hidden md:block" : undefined}
+          layout={!shouldReduceMotion}
+        >
+          {secondary}
+        </motion.div>
+      ) : null}
     </div>
   );
 }
